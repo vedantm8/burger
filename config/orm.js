@@ -84,5 +84,5 @@ var orm = {
   }
 };
 
-// exports the orm function to some other place
+// exports the orm function to models/burger.js
 module.exports = orm;
