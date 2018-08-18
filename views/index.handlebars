@@ -1,26 +1,47 @@
-<h1>Devoured</h1>
+<h1>Burger Activity</h1>
 
-<h2>Not Devoured</h2>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="nonDevouredBurgers">
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div>
+              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burger/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+      <div class="eatenBurgers">
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class='burgerEaten'>
+              <h2>
+                <strong>
+                  Devoured Burgers
+                </strong>
+              </h2>
+              <div>
+                {{this.burger_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
 
-<h2>Devoured</h
-<ul>
-  {{#each burgers}}
-    {{#if devoury}}
-      {{> burger/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+<h2>Add A Burger Option</h2>
 
-<h2>Add a Burger</h2>
-<form action="/burgers" method="POST">
-     <input type="text" id="name" name="burger_name" placeholder="Burger">
-     <button type="submit" class="addBurgerButton">Add The Burger</button>
-   </form>
+<div class="row">
+  <div class="AddingBurgers">
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="Uber Delicious Burger">
+      <button type="submit" class="addBurgerButton">Add The Burger</button>
+    </form>
+  </div>
+</div>
