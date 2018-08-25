@@ -1,3 +1,3 @@
 Burger (Eat-Da-Burger) Activity 
 
-![demo/burgersActivity.gif](burgersActivity.gif)
+![demo/burgersActivity.gif](demo/burgersActivity.gif)
